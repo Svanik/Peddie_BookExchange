@@ -1,3 +1,6 @@
+//Evan Glas
+//(c) 2020 Glas Industries
+
 var mysql = require('mysql');
 
 //Returns results element for each listing in the inventory table
