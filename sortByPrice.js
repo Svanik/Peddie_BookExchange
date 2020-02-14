@@ -1,5 +1,5 @@
 //Evan Glas
-//(c) 2020 Glas Industries
+//(c) 2020 Vyas Industries
 
 var mysql = require('mysql');
 
