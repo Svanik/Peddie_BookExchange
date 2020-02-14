@@ -10,11 +10,11 @@ var con = mysql.createConnection({
   database: "7fY7FODdcI"
 });
 
-function DELETELISTING(){
+function DELETELISTING(int x){
 let connection = mysql.createConnection(config);
 
 // DELETE statment
-let sql = `DELETE FROM todos WHERE id = ?`;
+let sql = `DELETE FROM todos WHERE id = x`;
 
 // delete a row with id 1
 connection.query(sql, 1, (error, results, fields) => {
