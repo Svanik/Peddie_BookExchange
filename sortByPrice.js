@@ -5,7 +5,7 @@ var mysql = require('mysql');
 
 //Returns results element for each listing in the inventory table
 
-function SORTBYPRICE() {
+function SortByPrice() {
     //Connects to test database
     var con = mysql.createConnection({
         host: "remotemysql.com",
@@ -15,10 +15,10 @@ function SORTBYPRICE() {
         port: 3306
     });
 
-    //Returns result object of books sorted by price (ascending order)
+    //Returns result object of books sorted by price low to high
     con.connect(function (err) {
         if (err) throw err;
-        con.query("SELECT * FROM Inventory ORDER BY PRICE", function (err, result) {
+        con.query("SELECT * FROM Inventory ORDER BY Price", function (err, result) {
             if (err) throw err;
             return result;
         });
