@@ -11,12 +11,18 @@ var sortInt=0;// there should be the filters on the website assigned to an int a
 switch(sortInt){
 case 0:
 SortByClass();
+ break;
 case 1: 
 SortByTitle();
+  break;
 case 2:
 SortByPrice();
+   break;
 case 3: 
 SortByCondition();
+    break;
+default:
+    break;
 }
 
 
