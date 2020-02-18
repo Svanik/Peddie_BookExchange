@@ -4,9 +4,7 @@
 
 var mysql = require('mysql');
 
-getListingsByUser()
-
-function getListingsByUser(email) {
+function getAllBooks() {
     var con = mysql.createConnection({
         host: "remotemysql.com",
         user: "7fY7FODdcI",
