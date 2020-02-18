@@ -1,9 +1,10 @@
 //Evan Glas
-//Returns all the listings of a user specified by their email
+//Returns all books as listed in the inventory
 //(c) 2020 Glas Industries
 
 var mysql = require('mysql');
 
+getListingsByUser()
 
 function getListingsByUser(email) {
     var con = mysql.createConnection({
@@ -15,7 +16,7 @@ function getListingsByUser(email) {
     });
     con.connect(function (err) {
         if (err) throw err;
-        con.query("SELECT * FROM Inventory WHERE selleremail = " + mysql.escape(email), function (err, result) {
+        con.query("SELECT * FROM Inventory", function (err, result) {
             if (err) throw err;
             console.log(result);
             return result;
