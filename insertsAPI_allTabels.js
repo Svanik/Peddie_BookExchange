@@ -1,8 +1,8 @@
-//Svanik Dani & Kishan J. Vyas
-// Insert into tables and what not
+//Svanik Dani & Kishan Vyas
+// inserting data into all the tables on the server
 
 var mysql = require('mysql');
-
+//connecting to the server
 var con = mysql.createConnection({
   host: "remotemysql.com",
   port: "3306",
@@ -10,7 +10,7 @@ var con = mysql.createConnection({
   password: "8Nq9eWvZDS",
   database: "7fY7FODdcI"
 });
-
+//the first function which inserts the appropriate data into the Book List table server 
 function intoBookList(ISBNN, Titlee, Classs, Departmentt, Teacherr, Termm){
   con.connect(function(err) {
    if (err) throw err;
