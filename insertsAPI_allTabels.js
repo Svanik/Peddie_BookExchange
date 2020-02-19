@@ -68,4 +68,4 @@ function intoImages(URL, Image){
   });
 }
 
-intoImages('svanikdaniandkishanvyas.com', 'SDKJ.jpg');
+//intoImages('svanikdaniandkishanvyas.com', 'SDKJ.jpg');
