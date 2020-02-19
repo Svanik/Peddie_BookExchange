@@ -10,7 +10,7 @@ var con = mysql.createConnection({
   password: "8Nq9eWvZDS",
   database: "7fY7FODdcI"
 });
-//the first function which inserts the appropriate data into the Book List table server 
+//the first function which inserts the appropriate data into the Book List table 
 function intoBookList(ISBNN, Titlee, Classs, Departmentt, Teacherr, Termm){
   con.connect(function(err) {
    if (err) throw err;
@@ -24,7 +24,7 @@ function intoBookList(ISBNN, Titlee, Classs, Departmentt, Teacherr, Termm){
      });
   });
 }
-
+//the second function which inserts the appropriate data into the Inventory table
 function intoInventory(statuss, ISBN, price, bookcondition, selleremail, date, imagepath, id, title){
   con.connect(function(err) {
    if (err) throw err;
@@ -39,6 +39,7 @@ function intoInventory(statuss, ISBN, price, bookcondition, selleremail, date, i
   });
 }
 
+//the thrid function which inserts the appropriate data into the Users table 
 function intoUsers(email, fname, lname){
   con.connect(function(err) {
    if (err) throw err;
