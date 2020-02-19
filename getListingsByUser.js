@@ -1,6 +1,9 @@
-//Evan Glas
-//Returns all the listings of a user specified by their email
-//(c) 2020 Glas Industries
+/**
+ * Returns all of the listings of a given user as designated by their email
+ * @param {String} email Seller email
+ * @return {json} result Default result variable from SQL database querey
+ * (c) Glas Industries
+ */
 
 var mysql = require('mysql');
 

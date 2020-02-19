@@ -1,5 +1,9 @@
-
-//Arjun 
+/**
+ * Returns a list of books in the inventory sorted by price low to high
+ * @param {n/a} n/a
+ * @return {json} result default sql result variable from database querey.
+ * (c) Glas Industries
+ */
 var mysql = require('mysql');
 
 //Returns results element for each listing in the inventory table
