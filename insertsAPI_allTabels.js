@@ -53,7 +53,7 @@ function intoUsers(email, fname, lname){
      });
   });
 }
-
+//the fourth function which inserts the appropriate data into the Images table 
 function intoImages(URL, Image){
   con.connect(function(err) {
    if (err) throw err;
