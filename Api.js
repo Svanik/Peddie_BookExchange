@@ -8,12 +8,14 @@ var con = mysql.createConnection({
     port: 3306
 });
 
+
+
+
 function parseJSON(json){
   return JSON.parse(json);
 }
 
-// GETS
-// __________________________________________________________________________________
+
 
 /**
   * Gets Book Data from ISBN
@@ -30,6 +32,22 @@ function getBookDataFromISBN(isbn){
   });
 }
 
+
+/**
+  * Removes Listing from db using ID
+  * @param {int} ID
+  * @return {Null}
+*/
+function deleteListing(id){
+  let sql = `DELETE FROM todos WHERE id = x`;
+  connection.query(sql, id, (error, results, fields) => {
+    if (error)
+      return console.error(error.message);
+
+  });
+}
+
+
 /**
   * Gets Book Data from ISBN
   * @param  {String} isbn
@@ -44,6 +62,7 @@ function getBookDataFromISBN(isbn){
       });
   });
 }
+
 
 /** Returns all listings from a given user email
   * @param {String} email
@@ -59,25 +78,6 @@ function getListingsByUser(email) {
         });
     });
 }
-
-/** Returns all listings from a given user email
-  * @param {String} isbn
-  * @return {JSON} Book List entery with given ISBN if such entery exsist
-*/
-function getBookByISBN(isbn){
-con.connect(function(err) {
-  if(err) throw err;
-  con.query("SELECT * FROM BookList WHERE ISBN = " + mysql.escape(isbn), function (err, result){
-    if (err) throw err;
-    console.log(result);
-    return result;
-  });
-
-});
-}
-
-// Purge
-//__________________________________________________________________________
 
 /** Auto purges listings from sellers who graduated, no args no returns.
   * @param {none}
@@ -107,25 +107,20 @@ function purgeSeniors(){
 
 }
 
-// Sorts and Searches
-//______________________________________________________________________
 
 /**
-  * Gets Sorst by price
-  * @param  {Null} none
-  * @return {Json} Json string sorting inventory by price
+
 */
-function SortByPrice() {
-    //Returns result object of books sorted by price low to high
+function sortByPrice() {
+    //Returns result object of books sorted by price (ascending order)
     con.connect(function (err) {
         if (err) throw err;
-        con.query("SELECT * FROM Inventory ORDER BY Price", function (err, result) {
+        con.query("SELECT * FROM Inventory ORDER BY PRICE", function (err, result) {
             if (err) throw err;
             return result;
         });
     });
 }
-
 
 /** Searches Inventory
   * @param {String} Search keyword
@@ -146,93 +141,5 @@ function searchInventory(keyword) {
     });
 }
 
-// Delete form tabel
-// __________________________________________________________________________________
-/**
-  * Removes Listing from db using ID
-  * @param {int} ID
-  * @return {Null}
-*/
-function deleteListing(id){
-  let sql = `DELETE FROM todos WHERE id = x`;
-  con.query(sql, id, (error, results, fields) => {
-    if (error)
-      return console.error(error.message);
-  });
-}
 
-//Inserts into tabels
-//______________________________________________________________
-
-/** Inserts Data into Book List Tabel
-  * @param {Strings} (ISBN, Title, Class, Department, Teacher, Term)
-  * @return null
-*/
-function intoBookList(ISBNN, Titlee, Classs, Departmentt, Teacherr, Termm){
-  con.connect(function(err) {
-   if (err) throw err;
-   console.log("Connected!");
-    var sql = "INSERT INTO `Book List` (`ISBN`, `Title`, `Class`, `Department`, `Teacher`, `Term`) VALUES ";
-     var str = sql +"(" + "\'" + ISBNN + "\', " + "\'"+ Titlee + "\', " + "\'"  + Classs + "\', " + "\'" + Departmentt + "\', " + "\'" + Teacherr + "\', " + "\'"+ Termm + "\'" + ");";
-     console.log(str);
-     con.query(str, function (err, result) {
-       if (err) throw err;
-       console.log("Number of records inserted: " + result.affectedRows);
-     });
-  });
-}
-
-/** Inserts Data into Inventory Tabel
-  * @param {Strings} (status, ISBN, price, book condition, seller email, date, image path, id, title)
-  * @return null
-*/
-function intoInventory(statuss, ISBN, price, bookcondition, selleremail, date, imagepath, id, title){
-  con.connect(function(err) {
-   if (err) throw err;
-   console.log("Connected!");
-    var sql = "INSERT INTO `Inventory` (`status`, `ISBN`, `price`, `bookcondition`, `selleremail`, `date` , `imagepath`, `id`, `title`) VALUES ";
-     var str = sql +"(" + "\'" + statuss + "\', " + "\'"+ ISBN + "\', " + "\'"  + price + "\', " + "\'" + bookcondition + "\', " + "\'" + selleremail + "\', " + "\'"+ date + "\', " + "\'"+ imagepath + "\', " + "\'"+ id  + "\', " + "\'"+ title + "\'" + ");";
-     console.log(str);
-     con.query(str, function (err, result) {
-       if (err) throw err;
-       console.log("Number of records inserted: " + result.affectedRows);
-     });
-  });
-}
-
-/** Inserts Data into Users Tabel
-  * @param {Strings} (Email, First Name, Last Name)
-  * @return null
-*/
-function intoUsers(email, fname, lname){
-  con.connect(function(err) {
-   if (err) throw err;
-   console.log("Connected!");
-    var sql = "INSERT INTO `Users` (`Email`, `First Name`, `Last Name`) VALUES ";
-     var str = sql +"(" + "\'" + email + "\', " + "\'"+ fname + "\', " + "\'"  + lname + "\'" + ");";
-     console.log(str);
-     con.query(str, function (err, result) {
-       if (err) throw err;
-       console.log("Number of records inserted: " + result.affectedRows);
-     });
-  });
-}
-
-/** Inserts Data into Image
-  * @param {Strings} (Url, Image)
-  * @return null
-*/
-function intoImages(URL, Image){
-  con.connect(function(err) {
-   if (err) throw err;
-   console.log("Connected!");
-    var sql = "INSERT INTO `Images` (`URL`, `Image`) VALUES ";
-     var str = sql +"(" + "\'" + URL + "\', " + "\'"+ Image + "\'" + ");";
-     console.log(str);
-     con.query(str, function (err, result) {
-       if (err) throw err;
-       console.log("Number of records inserted: " + result.affectedRows);
-     });
-  });
-}
-
+console.log(searchInventory("Hamlet"));
