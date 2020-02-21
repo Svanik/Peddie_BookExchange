@@ -28,6 +28,7 @@ case 4: //button changes int to 4 when pressed on website calling this
     break;
 case 5: //button changes int to 5 when pressed on website calling this
     SortAllByCondition(); //sorts all inventory books by conditon
+    break;
 default:
     break;
 }
@@ -83,15 +84,6 @@ function SearchByClass_OrderByCondition(){ //Arjun
         });
     });
 }
-function SortAllByCondition(){//Arjun 
-con.connect(function (err) {
-    if (err) throw err;
-    con.query("SELECT * FROM Inventory ORDER BY Condition", function (err, result) {
-        if (err) throw err;
-        return result;
-    });
-});
-}
 function SortAllByPrice(){ //Evan
     con.connect(function (err) {
         if (err) throw err;
@@ -100,4 +92,13 @@ function SortAllByPrice(){ //Evan
             return result;
         });
     });
+}
+function SortAllByCondition(){//Arjun 
+con.connect(function (err) {
+    if (err) throw err;
+    con.query("SELECT * FROM Inventory ORDER BY Condition", function (err, result) {
+        if (err) throw err;
+        return result;
+    });
+});
 }
