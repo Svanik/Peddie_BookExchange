@@ -28,10 +28,10 @@ case 4: //button changes int to 4 when pressed on website calling this
     SortAllByPrice(); //sorts all inventory books by price
     break;
 case 5: //button changes int to 5 when pressed on website calling this
-    SortAllByCondition(); //sorts all inventory books by conditon
+    SortAllByCondition(); //sorts all inventory books by condition
     break;
-case 6:
-    SortAllByDateandTime();
+case 6: //button changes int to 6 when pressed on website calling this
+    SortAllByDateandTime(); //sorts all inventory books from newest to oldest
     break;
 default:
     break;
