@@ -72,14 +72,7 @@ con.connect(function(err) {
 var sortInt=0;// there should be the filters on the website assigned to an int and when pressed a different search and sort will be called.
 var enteredTitle="ExampleTitle"; //needs to be read off of search bar
 var enteredClass="ExampleClass"; //needs to be read off of search bar
-var mysql = require('mysql');
-var con = mysql.createConnection({
-    host: "remotemysql.com",
-    user: "7fY7FODdcI",
-    password: "8Nq9eWvZDS",
-    database: "7fY7FODdcI",
-    port: 3306
-});
+
 switch(sortInt){
 case 0: //button changes int to 0 when pressed on website calling this
     SearchByTitle_OrderByPrice(); //pulls up search bar, enter title, order inventory books by price
