@@ -69,30 +69,32 @@ con.connect(function(err) {
 //______________________________________________________________________
 
 //Arjun - author of this massive switch statement
-var sortInt=0;// there should be the filters on the website assigned to an int and when pressed a different search and sort will be called.
-var enteredTitle="ExampleTitle"; //needs to be read off of search bar
-var enteredClass="ExampleClass"; //needs to be read off of search bar
 
-switch(sortInt){
-case 0: //button changes int to 0 when pressed on website calling this
-    SearchByTitle_OrderByPrice(); //pulls up search bar, enter title, order inventory books by price
-    break;
-case 1: //button changes int to 1 when pressed on website calling this
-    SearchByTitle_OrderByCondition(); //pulls up search bar, enter title, order inventory books by condition
-    break;
-case 2: //button changes int to 2 when pressed on website calling this
-    SearchByClass_OrderByPrice(); //pulls up search bar, enter class, order inventory books by price
-    break;
-case 3: //button changes int to 3 when pressed on website calling this
-    SearchByClass_OrderByCondition(); //pulls up search bar, enter class, order inventory books by condition
-    break;
-case 4: //button changes int to 4 when pressed on website calling this
-    SortAllByPrice(); //sorts all inventory books by price
-    break;
-case 5: //button changes int to 5 when pressed on website calling this
-    SortAllByCondition(); //sorts all inventory books by conditon
-default:
-    break;
+  function Sort(sortInt){
+  var enteredTitle="ExampleTitle"; //needs to be read off of search bar
+  var enteredClass="ExampleClass"; //needs to be read off of search bar
+
+  switch(sortInt){
+  case 0: //button changes int to 0 when pressed on website calling this
+      SearchByTitle_OrderByPrice(); //pulls up search bar, enter title, order inventory books by price
+      break;
+  case 1: //button changes int to 1 when pressed on website calling this
+      SearchByTitle_OrderByCondition(); //pulls up search bar, enter title, order inventory books by condition
+      break;
+  case 2: //button changes int to 2 when pressed on website calling this
+      SearchByClass_OrderByPrice(); //pulls up search bar, enter class, order inventory books by price
+      break;
+  case 3: //button changes int to 3 when pressed on website calling this
+      SearchByClass_OrderByCondition(); //pulls up search bar, enter class, order inventory books by condition
+      break;
+  case 4: //button changes int to 4 when pressed on website calling this
+      SortAllByPrice(); //sorts all inventory books by price
+      break;
+  case 5: //button changes int to 5 when pressed on website calling this
+      SortAllByCondition(); //sorts all inventory books by conditon
+  default:
+      break;
+  }
 }
 function SearchByTitle_OrderByPrice() { //Arjun
     con.connect(function (err) {
