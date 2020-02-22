@@ -1,12 +1,13 @@
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-    host: "remotemysql.com",
-    user: "7fY7FODdcI",
-    password: "8Nq9eWvZDS",
-    database: "7fY7FODdcI",
-    port: 3306
+  host: "us-cdbr-iron-east-04.cleardb.net",
+  user: "bd1c6a7c6db8bc",
+  password: "8ca72168",
+  database: "heroku_af9a5e472645ed1",
+  port:3306
 });
+
 
 function parseJSON(json){
   return JSON.parse(json);
