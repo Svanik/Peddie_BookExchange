@@ -179,7 +179,7 @@ function SortAllByPrice(){ //Evan
   * @return {Null}
 */
 function deleteListing(id){
-  let sql = `DELETE FROM todos WHERE id = x`;
+  let sql = `DELETE FROM Inventory WHERE id = x`;
   con.query(sql, id, (error, results, fields) => {
     if (error)
       return console.error(error.message);
