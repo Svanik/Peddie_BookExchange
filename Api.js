@@ -366,4 +366,3 @@ function ImageResize(fileName) {
     return path.join(outputImagePath, fileName);
 }
 
-ImageResize('dog1.jpg');
